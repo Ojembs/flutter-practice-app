@@ -35,7 +35,7 @@ class _NinjaAppState extends State<NinjaApp> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => {
           setState(() {
-            ninjaLevelCount += 1;
+            ninjaLevelCount += 2;
           })
         },
         backgroundColor: Colors.grey[800],

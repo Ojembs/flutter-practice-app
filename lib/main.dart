@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'quote.dart';
+import 'quote_card.dart';
 
 void main() {
   runApp( const MaterialApp(
@@ -14,12 +16,27 @@ class QuoteApp extends StatefulWidget {
 }
 
 class _QuoteAppState extends State<QuoteApp> {
-  List<String> quotes = [
-    "In the end, it's not the years in your life that count. It's the life in your years. - Abraham Lincoln",
-    "The only way to do great work is to love what you do. - Steve Jobs",
-    "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "Life is what happens when you're busy making other plans. - John Lennon"
+  List<Quote> quotes = [
+    Quote(
+        quoteText: "In the end, it's not the years in your life that count. It's the life in your years. ",
+        quoteAuthor: 'Abraham Lincoln'
+    ),
+    Quote(
+        quoteText: "The only way to do great work is to love what you do. ",
+        quoteAuthor: 'Steve Jobs'
+    ),
+    Quote(
+        quoteText: "Success is not final, failure is not fatal: It is the courage to continue that counts. ",
+        quoteAuthor: "Winston Churchill"
+    ),
+    Quote(
+        quoteText: "The only limit to our realization of tomorrow will be our doubts of today.",
+        quoteAuthor: "Franklin D. Roosevelt"
+    ),
+    Quote(
+        quoteText: "Life is what happens when you're busy making other plans.",
+        quoteAuthor: 'John Lennon'
+    )
   ];
 
   @override
@@ -41,8 +58,16 @@ class _QuoteAppState extends State<QuoteApp> {
       ),
 
       body: Column(
-        children: quotes.map((quote) => Text(quote)).toList()
+        children: quotes.map((quote) => QuoteCard(
+          quote: quote,
+          delete: () {
+            setState(() {
+              quotes.remove(quote);
+            });
+          }
+        )).toList()
       )
     );
   }
 }
+

@@ -12,7 +12,7 @@ class QuoteCard extends StatelessWidget {
     return Card(
         margin: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
@@ -25,7 +25,7 @@ class QuoteCard extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 16.0),
+              const SizedBox(height: 10.0),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -38,16 +38,13 @@ class QuoteCard extends StatelessWidget {
                       )
                   ),
 
-                  const SizedBox(width: 10.0),
+                  const SizedBox(width: 6.0),
 
-                  TextButton.icon(
-                    onPressed: delete(),
+                  IconButton(
+                    onPressed: () => delete(),
                     icon: const Icon(
                       Icons.delete_outline_rounded,
-                      color: Colors.red
-                    ),
-                    label: const Text(
-                      'Delete Quote'
+                      color: Colors.red,
                     ),
                   )
                 ],
